@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Dashboard - Divine Word College of Bangued</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/titser.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="admin-header">
+    <div class="header-left">
+      <div class="logo-circle">
+        <img src="image/logo.jpg" class="logo-text" height="100%" width="100%" >
+      </div>
+      <div class="header-title">
+        <h1>Faculty Dashboard</h1>
+        <span>Divine Word College of Bangued</span>
+      </div>
+    </div>
+    <button class="logout-btn" onclick="window.location.href='logout.html'">
+      <i class="fas fa-sign-out-alt"></i>
+      Logout
+    </button>
+  </header>
+
+  <!-- Layout -->
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item active" onclick="showSection('dashboard', event)">
+          <i class="fas fa-home"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#classes" class="nav-item" onclick="showSection('classes', event)">
+          <i class="fas fa-chalkboard"></i>
+          <span>Class Management</span>
+        </a>
+        <a href="#grades" class="nav-item" onclick="showSection('grades', event)">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Student Grades</span>
+        </a>
+        <a href="#schedules" class="nav-item" onclick="showSection('schedules', event)">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Class Schedules</span>
+        </a>
+        <a href="#announcements" class="nav-item" onclick="showSection('announcements', event)">
+          <i class="fas fa-bullhorn"></i>
+          <span>Announcements</span>
+        </a>
+        <a href="#profile" class="nav-item" onclick="showSection('profile', event)">
+          <i class="fas fa-user-circle"></i>
+          <span>Faculty Profile</span>
+        </a>
+        <a href="#logs" class="nav-item" onclick="showSection('logs', event)">
+          <i class="fas fa-history"></i>
+          <span>Activity Logs</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-content">
+      <!-- Dashboard Overview Section -->
+      <section id="dashboard" class="content-section">
+        <h2 class="section-title">Welcome, Prof. John Galicia</h2>
+        
+        <div class="dashboard-cards">
+          <div class="stat-card">
+            <div class="card-header">
+              <h3>Total Classes</h3>
+              <i class="fas fa-chalkboard"></i>
+            </div>
+            <div class="stat-number" id="totalClasses">6</div>
+            <p class="stat-label">Subjects Handled</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="card-header">
+              <h3>Total Students</h3>
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-number">180</div>
+            <p class="stat-label">Across All Classes</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="card-header">
+              <h3>Today's Classes</h3>
+              <i class="fas fa-calendar-day"></i>
+            </div>
+            <div class="stat-number">3</div>
+            <p class="stat-label">Scheduled for Today</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Class Management Section -->
+      <section id="classes" class="content-section">
+        <h2 class="section-title">Class Management</h2>
+        
+        <div class="content-card">
+          <div class="card-header-row">
+            <div>
+              <h3 class="card-title">My Classes</h3>
+              <p class="card-description">Manage your assigned subjects and sections</p>
+            </div>
+            <button class="btn btn-primary" onclick="showAddClassModal()">
+              <i class="fas fa-plus"></i> Add New Class
+            </button>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Subject Code</th>
+                  <th>Subject Name</th>
+                  <th>Year & Section</th>
+                  <th>Students</th>
+                  <th>Schedule</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="classTableBody">
+                <tr>
+                  <td>CS101</td>
+                  <td>Web Systems & Technologies</td>
+                  <td>BSIT 2</td>
+                  <td>35</td>
+                  <td>MWF 8:00-9:00 AM</td>
+                  <td class="actions">
+                    <button class="btn btn-edit">
+                      <i class="fas fa-users"></i> View Students
+                    </button>
+                    <button class="btn btn-edit">
+                      <i class="fas fa-edit"></i> Input Grades
+                    </button>
+                    <button class="action-btn delete" onclick="removeClass(this)" title="Remove Class">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CS102</td>
+                  <td>Database Management</td>
+                  <td>BSIT 2</td>
+                  <td>30</td>
+                  <td>TTH 10:00-11:30 AM</td>
+                  <td class="actions">
+                    <button class="btn btn-edit">
+                      <i class="fas fa-users"></i> View Students
+                    </button>
+                    <button class="btn btn-edit">
+                      <i class="fas fa-edit"></i> Input Grades
+                    </button>
+                    <button class="action-btn delete" onclick="removeClass(this)" title="Remove Class">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CS201</td>
+                  <td>Software Engineering</td>
+                  <td>BSIT 3</td>
+                  <td>28</td>
+                  <td>MWF 1:00-2:30 PM</td>
+                  <td class="actions">
+                    <button class="btn btn-edit">
+                      <i class="fas fa-users"></i> View Students
+                    </button>
+                    <button class="btn btn-edit">
+                      <i class="fas fa-edit"></i> Input Grades
+                    </button>
+                    <button class="action-btn delete" onclick="removeClass(this)" title="Remove Class">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>CS103</td>
+                  <td>Data Structures</td>
+                  <td>BSIT 2</td>
+                  <td>35</td>
+                  <td>TTH 8:00-9:30 AM</td>
+                  <td class="actions">
+                    <button class="btn btn-edit">
+                      <i class="fas fa-users"></i> View Students
+                    </button>
+                    <button class="btn btn-edit">
+                      <i class="fas fa-edit"></i> Input Grades
+                    </button>
+                    <button class="action-btn delete" onclick="removeClass(this)" title="Remove Class">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Student Grades Section -->
+      <section id="grades" class="content-section">
+        <h2 class="section-title">Student Grades</h2>
+        
+        <div class="content-card">
+          <div class="card-header-row">
+            <div>
+              <h3 class="card-title">Grade Management</h3>
+              <p class="card-description">Input and manage student grades</p>
+            </div>
+          </div>
+
+          <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search student by name or ID...">
+            <select class="year-select">
+              <option>Select Class</option>
+              <option>CS101 - Web Systems (BSIT 2)</option>
+              <option>CS102 - Database Management (BSIT 2)</option>
+              <option>CS201 - Software Engineering (BSIT 3)</option>
+              <option>CS103 - Data Structures (BSIT 2)</option>
+            </select>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Student ID</th>
+                  <th>Student Name</th>
+                  <th>Prelim</th>
+                  <th>Midterm</th>
+                  <th>Semi-Finals</th>
+                  <th>Finals</th>
+                  <th>Average</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2021-0001</td>
+                  <td>Dela Cruz, Maria</td>
+                  <td><input type="number" class="grade-input" value="85" min="0" max="100"></td>
+                  <td><input type="number" class="grade-input" value="88" min="0" max="100"></td>
+                  <td><input type="number" class="grade-input" value="90" min="0" max="100"></td>
+                  <td><input type="number" class="grade-input" value="92" min="0" max="100"></td>
+                  <td>88.75</td>
+                  <td><span class="status-badge success">Passed</span></td>
+                </tr>
+                <tr>
+                  <td>2021-0002</td>
+                  <td>Santos, Juan</td>
+                  <td><input type="number" class="grade-input" value="78" min="0" max="100"></td>
+                  <td><input type="number" class="grade-input" value="82" min="0" max="100"></td>
+                  <td><input type="number" class="grade-input" value="80" min="0" max="100"></td>
+                  <td><input type="number" class="grade-input" value="85" min="0" max="100"></td>
+                  <td>81.25</td>
+                  <td><span class="status-badge success">Passed</span></td>
+                </tr>
+                <tr>
+                  <td>2021-0003</td>
+                  <td>Reyes, Anna</td>
+                  <td><input type="number" class="grade-input" value="92" min="0" max="100"></td>
+                  <td><input type="number" class="grade-input" value="95" min="0" max="100"></td>
+                  <td><input type="number" class="grade-input" value="93" min="0" max="100"></td>
+                  <td><input type="number" class="grade-input" value="96" min="0" max="100"></td>
+                  <td>94.00</td>
+                  <td><span class="status-badge success">Passed</span></td>
+                </tr>
+                <tr>
+                  <td>2021-0004</td>
+                  <td>Garcia, Pedro</td>
+                  <td><input type="number" class="grade-input" value="70" min="0" max="100"></td>
+                  <td><input type="number" class="grade-input" value="72" min="0" max="100"></td>
+                  <td><input type="number" class="grade-input" value="68" min="0" max="100"></td>
+                  <td><input type="number" class="grade-input" placeholder="--" min="0" max="100"></td>
+                  <td>70.00</td>
+                  <td><span class="status-badge failed">Pending</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="form-actions" style="margin-top: 1.5rem;">
+            <button class="btn btn-primary">
+              <i class="fas fa-save"></i> Save Grades
+            </button>
+            <button class="btn btn-secondary">
+              <i class="fas fa-file-export"></i> Export to Excel
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Class Schedules Section -->
+      <section id="schedules" class="content-section">
+        <h2 class="section-title">Class Schedules</h2>
+        
+        <div class="content-card">
+          <div class="card-header-row">
+            <div>
+              <h3 class="card-title">Weekly Schedule</h3>
+              <p class="card-description">Your teaching schedule for this week</p>
+            </div>
+            <button class="btn btn-edit">
+              <i class="fas fa-edit"></i> Edit Schedule
+            </button>
+          </div>
+
+          <div class="schedule-grid">
+            <div class="schedule-day">
+              <h4>Monday</h4>
+              <div class="schedule-item">
+                <span class="time">8:00 - 9:00 AM</span>
+                <span class="subject">CS101 - Web Systems</span>
+                <span class="section">BSIT 2</span>
+              </div>
+              <div class="schedule-item">
+                <span class="time">1:00 - 2:30 PM</span>
+                <span class="subject">CS201 - Software Engineering</span>
+                <span class="section">BSIT 3</span>
+              </div>
+            </div>
+
+            <div class="schedule-day">
+              <h4>Tuesday</h4>
+              <div class="schedule-item">
+                <span class="time">8:00 - 9:30 AM</span>
+                <span class="subject">CS103 - Data Structures</span>
+                <span class="section">BSIT 2</span>
+              </div>
+              <div class="schedule-item">
+                <span class="time">10:00 - 11:30 AM</span>
+                <span class="subject">CS102 - Database Management</span>
+                <span class="section">BSIT 2</span>
+              </div>
+            </div>
+
+            <div class="schedule-day">
+              <h4>Wednesday</h4>
+              <div class="schedule-item">
+                <span class="time">8:00 - 9:00 AM</span>
+                <span class="subject">CS101 - Web Systems</span>
+                <span class="section">BSIT 2</span>
+              </div>
+              <div class="schedule-item">
+                <span class="time">1:00 - 2:30 PM</span>
+                <span class="subject">CS201 - Software Engineering</span>
+                <span class="section">BSIT 3</span>
+              </div>
+            </div>
+
+            <div class="schedule-day">
+              <h4>Thursday</h4>
+              <div class="schedule-item">
+                <span class="time">8:00 - 9:30 AM</span>
+                <span class="subject">CS103 - Data Structures</span>
+                <span class="section">BSIT 2</span>
+              </div>
+              <div class="schedule-item">
+                <span class="time">10:00 - 11:30 AM</span>
+                <span class="subject">CS102 - Database Management</span>
+                <span class="section">BSIT 2</span>
+              </div>
+            </div>
+
+            <div class="schedule-day">
+              <h4>Friday</h4>
+              <div class="schedule-item">
+                <span class="time">8:00 - 9:00 AM</span>
+                <span class="subject">CS101 - Web Systems</span>
+                <span class="section">BSIT 2</span>
+              </div>
+              <div class="schedule-item">
+                <span class="time">1:00 - 2:30 PM</span>
+                <span class="subject">CS201 - Software Engineering</span>
+                <span class="section">BSIT 3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Announcements Section -->
+      <section id="announcements" class="content-section">
+        <h2 class="section-title">Announcements</h2>
+        
+        <div class="content-card">
+          <div class="card-header-row">
+            <div>
+              <h3 class="card-title">System Announcements</h3>
+              <p class="card-description">Important updates from administration</p>
+            </div>
+            <button class="btn btn-primary">
+              <i class="fas fa-plus"></i> Create Announcement
+            </button>
+          </div>
+
+          <div class="announcements-list">
+            <div class="announcement-item">
+              <div class="announcement-info">
+                <h4>Midterm Examination Schedule Released</h4>
+                <p>Posted on October 10, 2025 by Admin</p>
+              </div>
+              <div class="announcement-actions">
+                <button class="action-btn edit">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="announcement-item">
+              <div class="announcement-info">
+                <h4>Grade Submission Deadline Extended</h4>
+                <p>Posted on October 8, 2025 by Admin</p>
+              </div>
+              <div class="announcement-actions">
+                <button class="action-btn edit">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="announcement-item">
+              <div class="announcement-info">
+                <h4>Faculty Training Session - October 20</h4>
+                <p>Posted on October 5, 2025 by Admin</p>
+              </div>
+              <div class="announcement-actions">
+                <button class="action-btn edit">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="announcement-item">
+              <div class="announcement-info">
+                <h4>Class Suspension Notice</h4>
+                <p>Posted on October 3, 2025 by Admin</p>
+              </div>
+              <div class="announcement-actions">
+                <button class="action-btn edit">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Faculty Profile Section -->
+      <section id="profile" class="content-section">
+        <h2 class="section-title">Faculty Profile</h2>
+        
+        <div class="content-card">
+          <div class="card-header-row">
+            <div>
+              <h3 class="card-title">My Profile Information</h3>
+              <p class="card-description">View and manage your personal details</p>
+            </div>
+            <button class="btn btn-edit">
+              <i class="fas fa-edit"></i> Edit Profile
+            </button>
+          </div>
+
+          <div class="profile-section">
+            <div class="profile-photo">
+              <div class="photo-placeholder">
+                <i class="fas fa-user"></i>
+              </div>
+              <button class="btn-edit-small">
+                <i class="fas fa-camera"></i> Change Photo
+              </button>
+            </div>
+
+            <div class="profile-details">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Full Name</label>
+                  <input type="text" value="Prof. John Christian Galicia" readonly>
+                </div>
+                <div class="form-group">
+                  <label>Employee ID</label>
+                  <input type="text" value="12345678" readonly>
+                </div>
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input type="email" value="bowdown0609@gmail.com" readonly>
+                </div>
+                <div class="form-group">
+                  <label>Department</label>
+                  <input type="text" value="ITCS Department" readonly>
+                </div>
+                <div class="form-group">
+                  <label>Position</label>
+                  <input type="text" value="Instructor" readonly>
+                </div>
+                <div class="form-group">
+                  <label>Contact Number</label>
+                  <input type="text" value="+63 912 345 6789" readonly>
+                </div>
+              </div>
+
+              <div class="form-actions" style="margin-top: 1.5rem;">
+                <button class="btn btn-secondary">
+                  <i class="fas fa-key"></i> Change Password
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Activity Logs Section -->
+      <section id="logs" class="content-section">
+        <h2 class="section-title">Activity Logs</h2>
+        
+        <div class="content-card">
+          <div>
+            <h3 class="card-title">Recent Activities</h3>
+            <p class="card-description">Track your recent actions in the system</p>
+          </div>
+
+          <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search activities...">
+            <input type="date" class="date-input" value="2025-10-16">
+          </div>
+
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Date & Time</th>
+                  <th>Activity</th>
+                  <th>Details</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Oct 16, 2025 - 9:30 AM</td>
+                  <td>Grade Input</td>
+                  <td>Updated grades for CS101 - BSIT 2</td>
+                  <td><span class="status-badge success">Success</span></td>
+                </tr>
+                <tr>
+                  <td>Oct 16, 2025 - 8:15 AM</td>
+                  <td>Login</td>
+                  <td>Logged into faculty dashboard</td>
+                  <td><span class="status-badge success">Success</span></td>
+                </tr>
+                <tr>
+                  <td>Oct 15, 2025 - 3:45 PM</td>
+                  <td>Schedule Update</td>
+                  <td>Modified CS201 class schedule</td>
+                  <td><span class="status-badge success">Success</span></td>
+                </tr>
+                <tr>
+                  <td>Oct 15, 2025 - 2:20 PM</td>
+                  <td>Announcement</td>
+                  <td>Created new class announcement</td>
+                  <td><span class="status-badge success">Success</span></td>
+                </tr>
+                <tr>
+                  <td>Oct 15, 2025 - 11:00 AM</td>
+                  <td>Grade Input</td>
+                  <td>Updated grades for CS102 - BSIT 2</td>
+                  <td><span class="status-badge success">Success</span></td>
+                </tr>
+                <tr>
+                  <td>Oct 15, 2025 - 8:30 AM</td>
+                  <td>Login</td>
+                  <td>Logged into faculty dashboard</td>
+                  <td><span class="status-badge success">Success</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Add Class Modal -->
+  <div id="addClassModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add New Class</h3>
+        <button class="close-modal" onclick="closeAddClassModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="newSubjectCode">Subject Code</label>
+            <input type="text" id="newSubjectCode" placeholder="CS104">
+          </div>
+          <div class="form-group">
+            <label for="newSubjectName">Subject Name</label>
+            <input type="text" id="newSubjectName" placeholder="Computer Programming">
+          </div>
+          <div class="form-group">
+            <label for="newYearSection">Year & Section</label>
+            <input type="text" id="newYearSection" placeholder="BSIT 2">
+          </div>
+          <div class="form-group">
+            <label for="newStudents">Number of Students</label>
+            <input type="number" id="newStudents" placeholder="30">
+          </div>
+          <div class="form-group">
+            <label for="newSchedule">Schedule</label>
+            <input type="text" id="newSchedule" placeholder="MWF 10:00-11:00 AM">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeAddClassModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="addClass()">Add Class</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showSection(sectionId, event) {
+      event.preventDefault();
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+      const selectedSection = document.getElementById(sectionId);
+      if (selectedSection) {
+        selectedSection.classList.add('active');
+      }
+      const navItems = document.querySelectorAll('.nav-item');
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === '#' + sectionId) {
+          item.classList.add('active');
+        }
+      });
+    }
+
+    function showAddClassModal() {
+      document.getElementById('addClassModal').style.display = 'flex';
+    }
+
+    function closeAddClassModal() {
+      document.getElementById('addClassModal').style.display = 'none';
+      document.getElementById('newSubjectCode').value = '';
+      document.getElementById('newSubjectName').value = '';
+      document.getElementById('newYearSection').value = '';
+      document.getElementById('newStudents').value = '';
+      document.getElementById('newSchedule').value = '';
+    }
+
+    function addClass() {
+      const subjectCode = document.getElementById('newSubjectCode').value;
+      const subjectName = document.getElementById('newSubjectName').value;
+      const yearSection = document.getElementById('newYearSection').value;
+      const students = document.getElementById('newStudents').value;
+      const schedule = document.getElementById('newSchedule').value;
+
+      if (!subjectCode || !subjectName || !yearSection || !students || !schedule) {
+        alert('Please fill in all fields');
+        return;
+      }
+
+      const tableBody = document.getElementById('classTableBody');
+      const newRow = document.createElement('tr');
+      newRow.innerHTML = `
+        <td>${subjectCode}</td>
+        <td>${subjectName}</td>
+        <td>${yearSection}</td>
+        <td>${students}</td>
+        <td>${schedule}</td>
+        <td class="actions">
+          <button class="btn btn-edit">
+            <i class="fas fa-users"></i> View Students
+          </button>
+          <button class="btn btn-edit">
+            <i class="fas fa-edit"></i> Input Grades
+          </button>
+          <button class="action-btn delete" onclick="removeClass(this)" title="Remove Class">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
+      `;
+      tableBody.appendChild(newRow);
+      
+      updateTotalClasses();
+      closeAddClassModal();
+      alert('Class added successfully!');
+    }
+
+    function removeClass(button) {
+      if (confirm('Are you sure you want to remove this class?')) {
+        const row = button.closest('tr');
+        row.remove();
+        updateTotalClasses();
+        alert('Class removed successfully!');
+      }
+    }
+
+    function updateTotalClasses() {
+      const totalClasses = document.getElementById('classTableBody').getElementsByTagName('tr').length;
+      document.getElementById('totalClasses').textContent = totalClasses;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('#dashboard').classList.add('active');
+    });
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('addClassModal');
+      if (event.target === modal) {
+        closeAddClassModal();
+      }
+    }
+  </script>
+
+</body>
+</html>

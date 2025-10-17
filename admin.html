@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Divine Word College of Bangued</title>
+  <meta name="description" content="Admin Panel for Divine Word College of Bangued School Information System">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <!-- Top Header -->
+  <header class="admin-header">
+    <div class="header-left">
+      <div class="logo-circle">
+        <img src="image/logo.jpg" class="logo-text" height="100%" width="100%" alt="DWCB Logo">
+      </div>
+      <div class="header-title">
+        <h1>Divine Word College of Bangued</h1>
+        <span>Admin Panel</span>
+      </div>
+    </div>
+    <button class="logout-btn" onclick="window.location.href='logout.html'">
+      <i class="fas fa-sign-out-alt"></i>
+      Logout
+    </button>
+  </header>
+
+  <div class="admin-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <a href="#dashboard" class="nav-item active" onclick="showSection('dashboard')">
+          <i class="fas fa-chart-line"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#manage-users" class="nav-item" onclick="showSection('manage-users')">
+          <i class="fas fa-users"></i>
+          <span>Manage Users</span>
+        </a>
+        <a href="#edit-content" class="nav-item" onclick="showSection('edit-content')">
+          <i class="fas fa-edit"></i>
+          <span>Edit Information System Content</span>
+        </a>
+        <a href="#academic-management" class="nav-item" onclick="showSection('academic-management')">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Academic Management</span>
+        </a>
+        <a href="#login-records" class="nav-item" onclick="showSection('login-records')">
+          <i class="fas fa-history"></i>
+          <span>User Login Records</span>
+        </a>
+        <a href="#system-announcements" class="nav-item" onclick="showSection('system-announcements')">
+          <i class="fas fa-bell"></i>
+          <span>System Announcements</span>
+        </a>
+        <a href="#system-config" class="nav-item" onclick="showSection('system-config')">
+          <i class="fas fa-cog"></i>
+          <span>System Configuration</span>
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-content">
+      
+      <!-- Dashboard Section -->
+      <section id="dashboard" class="content-section active">
+        <h2 class="section-title">Dashboard</h2>
+        
+        <div class="dashboard-cards">
+          <div class="stat-card">
+            <div class="card-header">
+              <h3>Total Students</h3>
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <p class="stat-number">1,245</p>
+            <p class="stat-label">+12% from last month</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="card-header">
+              <h3>Total Teachers</h3>
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <p class="stat-number">87</p>
+            <p class="stat-label">+3 new this semester</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="card-header">
+              <h3>Active Courses</h3>
+              <i class="fas fa-book"></i>
+            </div>
+            <p class="stat-number">42</p>
+            <p class="stat-label">Across 5 departments</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="card-header">
+              <h3>Pending Appointments</h3>
+              <i class="fas fa-clock"></i>
+            </div>
+            <p class="stat-number">18</p>
+            <p class="stat-label">Requires attention</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Manage Users Section -->
+      <section id="manage-users" class="content-section">
+        <h2 class="section-title">Manage Users</h2>
+        
+        <div class="content-card">
+          <h3 class="card-title">Add New User</h3>
+          <form class="user-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname">
+              </div>
+              
+              <div class="form-group">
+                <label for="role">Role</label>
+                <select id="role">
+                  <option>Student</option>
+                  <option>Teacher</option>
+                  <option>Admin</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email">
+              </div>
+
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username">
+              </div>
+
+              <!-- Student-specific fields -->
+              <div class="student-fields">
+                <div class="form-group">
+                  <label for="course">Course</label>
+                  <select id="course">
+                    <option value="">Select Course</option>
+                    <option>BS Information Technology</option>
+                    <option>BS Business Administration</option>
+                    <option>BA Communication</option>
+                    <option>BS Education</option>
+                    <option>BS Nursing</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="year-level">Year Level</label>
+                  <select id="year-level">
+                    <option value="">Select Year</option>
+                    <option>1st Year</option>
+                    <option>2nd Year</option>
+                    <option>3rd Year</option>
+                    <option>4th Year</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="••••••••">
+              </div>
+
+              <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" placeholder="••••••••">
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Add User</button>
+              <button type="button" class="btn btn-secondary">Generate User Credentials</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="content-card">
+          <h3 class="card-title">User List</h3>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Role</th>
+                  <th>Email</th>
+                  <th>Username</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ken Santos</td>
+                  <td><span class="badge badge-student">Student</span></td>
+                  <td>ksantos@gmail.com</td>
+                  <td>ksantos</td>
+                  <td class="actions">
+                    <button class="action-btn edit" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="action-btn delete" title="Delete"><i class="fas fa-trash"></i></button>
+                    <button class="action-btn reset" title="Reset Password"><i class="fas fa-key"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>John Christian Galicia</td>
+                  <td><span class="badge badge-teacher">Teacher</span></td>
+                  <td>jcgalicia@gmail.com</td>
+                  <td>jcgalicia</td>
+                  <td class="actions">
+                    <button class="action-btn edit" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="action-btn delete" title="Delete"><i class="fas fa-trash"></i></button>
+                    <button class="action-btn reset" title="Reset Password"><i class="fas fa-key"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jeric Misanes</td>
+                  <td><span class="badge badge-admin">Admin</span></td>
+                  <td>mjmisanes@gmail.com</td>
+                  <td>mjmisanes</td>
+                  <td class="actions">
+                    <button class="action-btn edit" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="action-btn delete" title="Delete"><i class="fas fa-trash"></i></button>
+                    <button class="action-btn reset" title="Reset Password"><i class="fas fa-key"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Derick Bisaya Slayer</td>
+                  <td><span class="badge badge-student">Student</span></td>
+                  <td>dBisayaSlayer@gmail.com</td>
+                  <td>jDestroyer</td>
+                  <td class="actions">
+                    <button class="action-btn edit" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="action-btn delete" title="Delete"><i class="fas fa-trash"></i></button>
+                    <button class="action-btn reset" title="Reset Password"><i class="fas fa-key"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Edit Information System Content Section -->
+      <section id="edit-content" class="content-section">
+        <h2 class="section-title">Edit Information System Content</h2>
+        
+        <!-- About Section -->
+        <div class="content-card">
+          <div class="card-header-row">
+            <h3 class="card-title">About Section</h3>
+            <button class="btn btn-edit"><i class="fas fa-edit"></i> Edit</button>
+          </div>
+          
+          <div class="form-group">
+            <label for="about-history">Brief History</label>
+            <textarea id="about-history" rows="3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste eligendi ea excepturi saepe enim doloremque pariatur, eum ipsam, dolorem labore possimus magni debitis neque, repellendus nemo necessitatibus dignissimos. Voluptatibus, alias!.</textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="about-mission">Mission</label>
+            <textarea id="about-mission" rows="3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa alias debitis doloremque assumenda sunt explicabo illum totam deleniti nostrum vero et, tempore officiis accusantium repellat fugiat rem! Tenetur, reprehenderit labore.</textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="about-vision">Vision</label>
+            <textarea id="about-vision" rows="3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi fugiat officia necessitatibus blanditiis, alias maiores minima debitis quidem, eligendi quam totam ipsum atque saepe suscipit perferendis neque soluta unde quos?</textarea>
+          </div>
+        </div>
+
+        <!-- Academics Section -->
+        <div class="content-card">
+          <div class="card-header-row">
+            <h3 class="card-title">Academics Section</h3>
+            <button class="btn btn-primary">Add Course</button>
+          </div>
+
+          <div class="course-grid">
+            <div class="course-box">
+              <h4>BS Information Technology</h4>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus, totam! Praesentium error soluta repellat iste laudantium? Aspernatur nihil at voluptatibus excepturi, tenetur nisi labore sed recusandae ipsa nobis necessitatibus commodi?</p>
+              <button class="btn btn-edit-small"><i class="fas fa-edit"></i> Edit</button>
+            </div>
+
+            <div class="course-box">
+              <h4>BS Business Administration</h4>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio natus voluptas voluptates nulla? Enim quo, voluptatem aliquid at veritatis necessitatibus vel consectetur velit sit. Adipisci aliquid maxime libero perferendis. Dolor.</p>
+              <button class="btn btn-edit-small"><i class="fas fa-edit"></i> Edit</button>
+            </div>
+
+
+            <div class="course-box">
+              <h4>BS Education</h4>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis sint quam a autem rem quaerat! Quasi quidem culpa quas tempora minima? Minus expedita odit saepe, voluptatum neque quis. Eius, aperiam.</p>
+              <button class="btn btn-edit-small"><i class="fas fa-edit"></i> Edit</button>
+            </div>
+
+            <div class="course-box">
+              <h4>BS Nursing</h4>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam sunt incidunt dolore doloremque molestias officia eum pariatur consequuntur placeat quod? Voluptatum, ex! Sunt aspernatur quisquam dolores quae odit cupiditate obcaecati.</p>
+              <button class="btn btn-edit-small"><i class="fas fa-edit"></i> Edit</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Announcements Section -->
+        <div class="content-card">
+          <div class="card-header-row">
+            <h3 class="card-title">Announcements Section</h3>
+            <button class="btn btn-primary">Add Announcement</button>
+          </div>
+
+          <div class="announcements-list">
+            <div class="announcement-item">
+              <div class="announcement-info">
+                <h4>College Fair 2025</h4>
+                <p>October 15, 2025 • Upcoming Event</p>
+              </div>
+              <div class="announcement-actions">
+                <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+
+            <div class="announcement-item">
+              <div class="announcement-info">
+                <h4>Scholarship Applications Open</h4>
+                <p>November 1, 2025 • Action Required</p>
+              </div>
+              <div class="announcement-actions">
+                <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+
+            <div class="announcement-item">
+              <div class="announcement-info">
+                <h4>New Semester Orientation</h4>
+                <p>September 28, 2025 • Completed</p>
+              </div>
+              <div class="announcement-actions">
+                <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="content-card">
+          <div class="card-header-row">
+            <h3 class="card-title">Contact Section</h3>
+            <button class="btn btn-primary">Save Changes</button>
+          </div>
+
+          <div class="form-grid form-grid-3">
+            <div class="form-group">
+              <label for="contact-address">School Address</label>
+              <input type="text" id="contact-address" value="Bangued, Abra, Philippines">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-phone">Phone Number</label>
+              <input type="text" id="contact-phone" value="123456789">
+            </div>
+
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" value="dwcb@gmail.com">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Academic Management Section -->
+      <section id="academic-management" class="content-section">
+        <h2 class="section-title">Academic Management</h2>
+        
+        <!-- Course/Program Management -->
+        <div class="content-card">
+          <h3 class="card-title">Course/Program Management</h3>
+          
+          <div class="add-course-form">
+            <input type="text" placeholder="Course name" class="course-input">
+            <button class="btn btn-primary">Add Course</button>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Course Code</th>
+                  <th>Course Name</th>
+                  <th>Department</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>BSIT-101</td>
+                  <td>Programming Fundamentals</td>
+                  <td>IT</td>
+                  <td class="actions">
+                    <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>BSBA-101</td>
+                  <td>Business Management</td>
+                  <td>Business</td>
+                  <td class="actions">
+                    <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Class Schedule Management -->
+        <div class="content-card">
+          <h3 class="card-title">Class Schedule Management</h3>
+          
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Teacher</th>
+                  <th>Subject</th>
+                  <th>Day</th>
+                  <th>Time</th>
+                  <th>Room</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Prof. Garcia</td>
+                  <td>Programming Fundamentals</td>
+                  <td>Monday</td>
+                  <td>8:00 AM - 10:00 AM</td>
+                  <td>Lab 101</td>
+                  <td class="actions">
+                    <button class="action-btn edit" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="action-btn delete" title="Delete"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Prof. Santos</td>
+                  <td>Business Mathematics</td>
+                  <td>Tuesday</td>
+                  <td>10:00 AM - 12:00 PM</td>
+                  <td>Room 202</td>
+                  <td class="actions">
+                    <button class="action-btn edit" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="action-btn delete" title="Delete"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Prof. Reyes</td>
+                  <td>Communication Theory</td>
+                  <td>Wednesday</td>
+                  <td>1:00 PM - 3:00 PM</td>
+                  <td>Room 303</td>
+                  <td class="actions">
+                    <button class="action-btn edit" title="Edit"><i class="fas fa-edit"></i></button>
+                    <button class="action-btn delete" title="Delete"><i class="fas fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Assign Teachers to Courses -->
+        <div class="content-card">
+          <h3 class="card-title">Assign Teachers to Courses</h3>
+          
+          <div class="form-grid form-grid-3">
+            <div class="form-group">
+              <label for="select-teacher">Select Teacher</label>
+              <select id="select-teacher">
+                <option>Prof. Garcia</option>
+                <option>Prof. Santos</option>
+                <option>Prof. Tauro</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="select-course">Select Course</label>
+              <select id="select-course">
+                <option>Programming Fundamentals</option>
+                <option>Business Management</option>
+                <option>Communication Theory</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>&nbsp;</label>
+              <button class="btn btn-primary btn-full">Assign</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- View Grades Section -->
+        <div class="content-card">
+          <h3 class="card-title">View Grades</h3>
+          
+          <div class="search-bar">
+            <input type="text" placeholder="Search student name or ID..." class="search-input">
+            <select class="year-select">
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+            </select>
+            <button class="btn btn-primary">Search</button>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Student ID</th>
+                  <th>Name</th>
+                  <th>Course</th>
+                  <th>Semester</th>
+                  <th>Average</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>112233</td>
+                  <td>Ken Santos</td>
+                  <td>BSIT</td>
+                  <td>1st Sem</td>
+                  <td><strong>92.5</strong></td>
+                </tr>
+                <tr>
+                  <td>445566</td>
+                  <td>Jeric Misanes</td>
+                  <td>BSBA</td>
+                  <td>1st Sem</td>
+                  <td><strong>94.2</strong></td>
+                </tr>
+                <tr>
+                  <td>778899</td>
+                  <td>John Galicia</td>
+                  <td>BA Communication</td>
+                  <td>1st Sem</td>
+                  <td><strong>90.8</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- User Login Records Section -->
+      <section id="login-records" class="content-section">
+        <h2 class="section-title">User Login Records</h2>
+        
+        <div class="content-card">
+          <div class="search-bar">
+            <input type="text" placeholder="Search username..." class="search-input">
+            <input type="date" class="date-input">
+            <button class="btn btn-primary">Filter</button>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th>Login Date</th>
+                  <th>Login Time</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ksantos</td>
+                  <td><span class="badge badge-student">Student</span></td>
+                  <td>2025-10-16</td>
+                  <td>08:45 AM</td>
+                  <td><span class="status-badge success">Success</span></td>
+                </tr>
+                <tr>
+                  <td>jcgalisia</td>
+                  <td><span class="badge badge-teacher">Teacher</span></td>
+                  <td>2025-10-16</td>
+                  <td>08:30 AM</td>
+                  <td><span class="status-badge success">Success</span></td>
+                </tr>
+                <tr>
+                  <td>jcmisanes</td>
+                  <td><span class="badge badge-admin">Admin</span></td>
+                  <td>2025-10-16</td>
+                  <td>08:15 AM</td>
+                  <td><span class="status-badge success">Success</span></td>
+                </tr>
+                <tr>
+                  <td>rflinggayo</td>
+                  <td><span class="badge badge-student">Student</span></td>
+                  <td>2025-10-16</td>
+                  <td>08:00 AM</td>
+                  <td><span class="status-badge success">Success</span></td>
+                </tr>
+                <tr>
+                  <td>unknown</td>
+                  <td><span class="badge">—</span></td>
+                  <td>2025-10-16</td>
+                  <td>07:45 AM</td>
+                  <td><span class="status-badge failed">Failed</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- System Announcements Section -->
+      <section id="system-announcements" class="content-section">
+        <h2 class="section-title">System Announcements</h2>
+        
+        <div class="content-card">
+          <div class="card-header-row">
+            <h3 class="card-title">Manage System Announcements</h3>
+            <button class="btn btn-primary"><i class="fas fa-plus"></i> Add Announcement</button>
+          </div>
+
+          <div class="announcements-list">
+            <div class="announcement-item">
+              <div class="announcement-info">
+                <h4>System Maintenance Scheduled</h4>
+                <p>November 5, 2025 • System Update</p>
+              </div>
+              <div class="announcement-actions">
+                <button class="action-btn edit" title="Edit"><i class="fas fa-edit"></i></button>
+                <button class="action-btn delete" title="Delete"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+
+            <div class="announcement-item">
+              <div class="announcement-info">
+                <h4>Holiday Schedule Released</h4>
+                <p>October 15, 2025 • Information</p>
+              </div>
+              <div class="announcement-actions">
+                <button class="action-btn edit" title="Edit"><i class="fas fa-edit"></i></button>
+                <button class="action-btn delete" title="Delete"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+
+            <div class="announcement-item">
+              <div class="announcement-info">
+                <h4>Server Upgrade Complete</h4>
+                <p>October 1, 2025 • System Update</p>
+              </div>
+              <div class="announcement-actions">
+                <button class="action-btn edit" title="Edit"><i class="fas fa-edit"></i></button>
+                <button class="action-btn delete" title="Delete"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- System Configuration Section -->
+      <section id="system-config" class="content-section">
+        <h2 class="section-title">System Configuration</h2>
+        
+        <!-- Global School Info Editor -->
+        <div class="content-card">
+          <h3 class="card-title">Global School Info Editor</h3>
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="school-name">School Name</label>
+              <input type="text" id="school-name" value="Divine Word College of Bangued">
+            </div>
+
+            <div class="form-group">
+              <label for="academic-year">Academic Year</label>
+              <input type="text" id="academic-year" value="2025-2026">
+            </div>
+
+            <div class="form-group">
+              <label for="school-address-config">School Address</label>
+              <input type="text" id="school-address-config" value="Bangued, Abra, Philippines">
+            </div>
+
+            <div class="form-group">
+              <label for="logo-url">School Logo URL</label>
+              <input type="text" id="logo-url" placeholder="https://...">
+            </div>
+          </div>
+
+          <button class="btn btn-primary">Save Changes</button>
+        </div>
+
+        <!-- Backup and Restore -->
+        <div class="content-card">
+          <h3 class="card-title">Backup and Restore</h3>
+          <p class="card-description">Manage system backups and restore data when needed.</p>
+          
+          <div class="backup-buttons">
+            <button class="btn btn-secondary">
+              <i class="fas fa-download"></i> Create Backup
+            </button>
+            <button class="btn btn-outline">
+              <i class="fas fa-upload"></i> Restore Backup
+            </button>
+          </div>
+        </div>
+
+        <!-- System Settings -->
+        <div class="content-card">
+          <h3 class="card-title">System Settings</h3>
+          
+          <div class="settings-list">
+            <div class="setting-item">
+              <div class="setting-info">
+                <h4>Theme Color</h4>
+                <p>Primary color used throughout the system</p>
+              </div>
+              <input type="color" value="#0a9447" class="color-picker">
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <h4>User Permissions</h4>
+                <p>Configure role-based access control</p>
+              </div>
+              <button class="btn btn-outline">Configure</button>
+            </div>
+
+            <div class="setting-item">
+              <div class="setting-info">
+                <h4>Email Notifications</h4>
+                <p>Enable or disable system email notifications</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+
+      // Show selected section
+      const selectedSection = document.getElementById(sectionId);
+      if (selectedSection) {
+        selectedSection.classList.add('active');
+      }
+
+      // Update active nav item
+      const navItems = document.querySelectorAll('.nav-item');
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === '#' + sectionId) {
+          item.classList.add('active');
+        }
+      });
+
+      // Prevent default link behavior
+      event.preventDefault();
+    }
+  </script>
+</body>
+</html>
