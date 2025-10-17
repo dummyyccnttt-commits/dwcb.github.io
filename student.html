@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - Divine Word College of Bangued</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/student.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="admin-header">
+    <div class="header-left">
+      <div class="logo-circle">
+        <img src="image/logo.jpg" class="logo-text" height="100%" width="100%">
+      </div>
+      <div class="header-title">
+        <h1>Student Portal</h1>
+        <span>Divine Word College of Bangued</span>
+      </div>
+    </div>
+    <button class="logout-btn" onclick="window.location.href='logout.html'">
+      <i class="fas fa-sign-out-alt"></i>
+      Logout
+    </button>
+  </header>
+
+  <!-- Layout -->
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+       <a href="#dashboard" class="nav-item active" onclick="showSection('dashboard', event)">
+          <i class="fas fa-home"></i>
+          Dashboard
+        </a>
+        <a href="#profile" class="nav-item" onclick="showSection('profile', event)">
+          <i class="fas fa-user"></i>
+          Profile
+        </a>
+        <a href="#grades" class="nav-item" onclick="showSection('grades', event)">
+          <i class="fas fa-chart-bar"></i>
+          Grades
+        </a>
+        <a href="#schedule" class="nav-item" onclick="showSection('schedule', event)">
+          <i class="fas fa-calendar-alt"></i>
+          Schedule
+        </a>
+        <a href="#announcements" class="nav-item" onclick="showSection('announcements', event)">
+          <i class="fas fa-bullhorn"></i>
+          Announcements
+        </a>
+        <a href="#appointments" class="nav-item" onclick="showSection('appointments', event)">
+          <i class="fas fa-calendar-check"></i>
+          Appointments
+        </a>
+        <a href="#logs" class="nav-item" onclick="showSection('logs', event)">
+          <i class="fas fa-history"></i>
+          Logs
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-content">
+    
+    <!-- Dashboard Overview Section -->
+    <section id="dashboard" class="section">
+      <h1 class="welcome-heading">Welcome, Jeric Misanes</h1>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="stat-info">
+            <h3>Year & Course</h3>
+            <p class="stat-value">4th Year - BSCS</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="stat-info">
+            <h3>Enrolled Subjects</h3>
+            <p class="stat-value">8 Subjects</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="stat-info">
+            <h3>Current Average</h3>
+            <p class="stat-value">90</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profile Information Section -->
+    <section id="profile" class="section">
+      <div class="section-card">
+        <div class="card-header">
+          <h2 class="section-title">Profile Information</h2>
+          <div class="card-actions">
+            <button class="btn btn-outline">
+              <i class="fas fa-edit"></i> Edit Profile
+            </button>
+            <button class="btn btn-outline">
+              <i class="fas fa-key"></i> Change Password
+            </button>
+          </div>
+        </div>
+        
+        <div class="profile-content">
+          <div class="profile-photo">
+            <div class="photo-placeholder">
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+          
+          <div class="profile-details">
+            <div class="detail-row">
+              <div class="detail-item">
+                <label>Full Name</label>
+                <p>Mark Jeric Misanes</p>
+              </div>
+              <div class="detail-item">
+                <label>Student ID</label>
+                <p>123456789</p>
+              </div>
+            </div>
+            
+            <div class="detail-row">
+              <div class="detail-item">
+                <label>Course</label>
+                <p>Bachelor of Science in Computer Science</p>
+              </div>
+              <div class="detail-item">
+                <label>Email</label>
+                <p>sagingdestroyer0609@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recovery Email Subsection -->
+        <div class="recovery-email-section">
+          <h3 class="subsection-title">
+            <i class="fas fa-shield-alt"></i>
+            Recovery Email
+          </h3>
+          <p class="subsection-description">Set or update your recovery email for password resets</p>
+          
+          <div class="recovery-form">
+            <input type="email" class="recovery-input" placeholder="Enter recovery email...">
+            <button class="btn btn-primary">
+              <i class="fas fa-save"></i>
+              Save Recovery Email
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grades Section -->
+    <section id="grades" class="section">
+      <div class="section-card">
+        <div class="card-header">
+          <h2 class="section-title">My Grades</h2>
+          <button class="btn btn-primary">
+            <i class="fas fa-download"></i>
+            Download Grades
+          </button>
+        </div>
+        
+        <div class="search-container">
+          <input type="text" class="search-input" placeholder="Search Subject...">
+        </div>
+        
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Subject</th>
+                <th>Instructor</th>
+                <th>Prelim</th>
+                <th>Midterm</th>
+                <th>Final</th>
+                <th>Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Web Systems and Technologies</td>
+                <td>Prof. John Derick Tauro</td>
+                <td>88</td>
+                <td>89</td>
+                <td>87</td>
+                <td><span class="badge badge-success">Passed</span></td>
+              </tr>
+              <tr>
+                <td>Data Structures and Algorithms</td>
+                <td>Prof. Jasper Bicera</td>
+                <td>90</td>
+                <td>89</td>
+                <td>89</td>
+                <td><span class="badge badge-success">Passed</span></td>
+              </tr>
+              <tr>
+                <td>Database Management Systems</td>
+                <td>Prof. John Galicia</td>
+                <td>92</td>
+                <td>90</td>
+                <td>90</td>
+                <td><span class="badge badge-success">Passed</span></td>
+              </tr>
+              <tr>
+                <td>Software Engineering</td>
+                <td>Prof. Rhyz Linggayo</td>
+                <td>87</td>
+                <td>88</td>
+                <td>87</td>
+                <td><span class="badge badge-success">Passed</span></td>
+              </tr>
+              <tr>
+                <td>Computer Networks</td>
+                <td>Prof. Gracechelle Barbosa</td>
+                <td>91</td>
+                <td>91</td>
+                <td>90</td>
+                <td><span class="badge badge-success">Passed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Class Schedule Section -->
+    <section id="schedule" class="section">
+      <div class="section-card">
+        <h2 class="section-title">Class Schedule</h2>
+        
+        <div class="schedule-list">
+          <div class="schedule-item">
+            <div class="schedule-day">Monday</div>
+            <div class="schedule-details">
+              <div class="schedule-time">8:00 AM - 9:30 AM</div>
+              <div class="schedule-subject">Web Systems and Technologies</div>
+              <div class="schedule-room">305</div>
+            </div>
+          </div>
+          
+          <div class="schedule-item">
+            <div class="schedule-day">Monday</div>
+            <div class="schedule-details">
+              <div class="schedule-time">10:00 AM - 11:30 AM</div>
+              <div class="schedule-subject">Data Structures and Algorithms</div>
+              <div class="schedule-room">202</div>
+            </div>
+          </div>
+          
+          <div class="schedule-item">
+            <div class="schedule-day">Tuesday</div>
+            <div class="schedule-details">
+              <div class="schedule-time">1:00 PM - 2:30 PM</div>
+              <div class="schedule-subject">Database Management Systems</div>
+              <div class="schedule-room">203</div>
+            </div>
+          </div>
+          
+          <div class="schedule-item">
+            <div class="schedule-day">Wednesday</div>
+            <div class="schedule-details">
+              <div class="schedule-time">8:00 AM - 9:30 AM</div>
+              <div class="schedule-subject">Software Engineering</div>
+              <div class="schedule-room">202</div>
+            </div>
+          </div>
+          
+          <div class="schedule-item">
+            <div class="schedule-day">Thursday</div>
+            <div class="schedule-details">  
+              <div class="schedule-time">2:00 PM - 3:30 PM</div>
+              <div class="schedule-subject">Computer Networks</div>
+              <div class="schedule-room">AVR</div>
+            </div>
+          </div>
+          
+          <div class="schedule-item">
+            <div class="schedule-day">Friday</div>
+            <div class="schedule-details">
+              <div class="schedule-time">9:00 AM - 10:30 AM</div>
+              <div class="schedule-subject">Mobile Application Development</div>
+              <div class="schedule-room">204</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Announcements Section -->
+    <section id="announcements" class="section">
+      <div class="section-card">
+        <h2 class="section-title">Announcements</h2>
+        
+        <div class="announcements-grid">
+          <div class="announcement-card">
+            <div class="announcement-header">
+              <h3>Midterm Examination Schedule Released</h3>
+              <span class="announcement-date">Nov 15, 2025</span>
+            </div>
+            <p class="announcement-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel enim a elit viverra elementum. 
+              Check your student portal for the complete examination schedule.
+            </p>
+          </div>
+          
+          <div class="announcement-card">
+            <div class="announcement-header">
+              <h3>Library Extended Hours</h3>
+              <span class="announcement-date">Oct 12, 2025</span>
+            </div>
+            <p class="announcement-text">
+              Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. The library will be open until 10:00 PM 
+              during the examination period to accommodate studying students.
+            </p>
+          </div>
+          
+          <div class="announcement-card">
+            <div class="announcement-header">
+              <h3>Student Organization Fair</h3>
+              <span class="announcement-date">Jan 10, 2026</span>
+            </div>
+            <p class="announcement-text">
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Join us at the quad for the annual 
+              student organization fair this Friday from 1:00 PM to 5:00 PM.
+            </p>
+          </div>
+          
+          <div class="announcement-card">
+            <div class="announcement-header">
+              <h3>Online Payment System Update</h3>
+              <span class="announcement-date">May 8, 2028</span>
+            </div>
+            <p class="announcement-text">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum. Our online payment system has been 
+              upgraded to provide faster and more secure transactions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appointments Section -->
+    <section id="appointments" class="section">
+      <div class="section-card">
+        <div class="card-header">
+          <h2 class="section-title">Consultation Appointments</h2>
+          <button class="btn btn-primary">
+            <i class="fas fa-calendar-plus"></i>
+            Book Appointment
+          </button>
+        </div>
+        
+        <div class="appointments-list">
+          <div class="appointment-item">
+            <div class="appointment-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="appointment-details">
+              <h4>Prof. John Galicia</h4>
+              <p class="appointment-subject">Web Systems and Technologies</p>
+              <p class="appointment-datetime">
+                <i class="fas fa-calendar"></i> May 20, 2025 | 
+                <i class="fas fa-clock"></i> 2:00 PM
+              </p>
+            </div>
+            <div class="appointment-actions">
+              <span class="badge badge-pending">Pending</span>
+              <button class="btn-icon btn-cancel">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="appointment-item">
+            <div class="appointment-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="appointment-details">
+              <h4>Prof. John Tauro</h4>
+              <p class="appointment-subject">Data Structures and Algorithms</p>
+              <p class="appointment-datetime">
+                <i class="fas fa-calendar"></i> May 18, 2025 | 
+                <i class="fas fa-clock"></i> 10:00 AM
+              </p>
+            </div>
+            <div class="appointment-actions">
+              <span class="badge badge-approved">Approved</span>
+              <button class="btn-icon btn-cancel">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          
+          <div class="appointment-item">
+            <div class="appointment-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="appointment-details">
+              <h4>Prof. Jasper Bicera</h4>
+              <p class="appointment-subject">Database Management Systems</p>
+              <p class="appointment-datetime">
+                <i class="fas fa-calendar"></i> May 16, 2025 | 
+                <i class="fas fa-clock"></i> 3:30 PM
+              </p>
+            </div>
+            <div class="appointment-actions">
+              <span class="badge badge-completed">Completed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Activity Logs Section -->
+    <section id="logs" class="section">
+      <div class="section-card">
+        <h2 class="section-title">Activity History</h2>
+        
+        <div class="logs-list">
+          <div class="log-item">
+            <div class="log-icon">
+              <i class="fas fa-sign-in-alt"></i>
+            </div>
+            <div class="log-details">
+              <p class="log-action">Logged in to student portal</p>
+              <p class="log-timestamp">May 33, 2025 at 8:30 AM</p>
+            </div>
+          </div>
+          
+          <div class="log-item">
+            <div class="log-icon">
+              <i class="fas fa-file-download"></i>
+            </div>
+            <div class="log-details">
+              <p class="log-action">Downloaded grade report</p>
+              <p class="log-timestamp">December 19, 2025 at 4:15 PM</p>
+            </div>
+          </div>
+          
+          <div class="log-item">
+            <div class="log-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div class="log-details">
+              <p class="log-action">Booked consultation with Prof. Tauro</p>
+              <p class="log-timestamp">September 23, 2025 at 2:45 PM</p>
+            </div>
+          </div>
+          
+          <div class="log-item">
+            <div class="log-icon">
+              <i class="fas fa-eye"></i>
+            </div>
+            <div class="log-details">
+              <p class="log-action">Viewed class schedule</p>
+              <p class="log-timestamp">August 30, 2025 at 10:20 AM</p>
+            </div>
+          </div>
+          
+          <div class="log-item">
+            <div class="log-icon">
+              <i class="fas fa-user-edit"></i>
+            </div>
+            <div class="log-details">
+              <p class="log-action">Updated profile information</p>
+              <p class="log-timestamp">June 32, 2027 at 11:05 AM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  </div>
+  <script>
+  // Function to show a section and highlight sidebar link
+  function showSection(sectionId, event) {
+    event.preventDefault();
+
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+
+    // Show selected section
+    document.getElementById(sectionId).classList.add('active');
+
+    // Update active sidebar link
+    document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+    document.querySelector(`.nav-item[href="#${sectionId}"]`).classList.add('active');
+  }
+
+  // Activate dashboard by default
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('dashboard').classList.add('active');
+  });
+</script>
+
+</body>
+</html>
